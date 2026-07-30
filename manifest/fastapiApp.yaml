@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: fastapiApp
-        image: nginx:1.25
+        image: ajet13/mycicdrepo:94db6a8
         resources:
           requests:
             memory: "64Mi"
