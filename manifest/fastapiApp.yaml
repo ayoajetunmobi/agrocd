@@ -20,7 +20,7 @@ spec:
         tier: backendapi
     spec:
       containers:
-      - name: fastapiApp
+      - name: fastapiapp
         image: ajet13/mycicdrepo:94db6a8
         resources:
           requests:
