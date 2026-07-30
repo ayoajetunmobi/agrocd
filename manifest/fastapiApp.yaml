@@ -1,1 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-app-deployment
+  namespace: webapp
+  labels:
+    app: web-app
+    environment: production
+    tier: backendapi
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web-app
+  template:
+    metadata:
+      labels:
+        app: web-app
+        environment: production
+        tier: backendapi
+    spec:
+      containers:
+      - name: fastapiApp
+        image: nginx:1.25
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
+        ports:
+        - containerPort: 80
 ---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: web-app-pdb
+  namespace: webapp
+  labels:
+    environment: production
+    tier: backendapi
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: web-app
