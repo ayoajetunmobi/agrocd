@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: fastapiapp
-        image: ajet13/mycicdrepo:94db6a8
+        image: ajet13/mycicdrepo:c9061be
         #resources:
          # requests:
           #  memory: "20Mi"
