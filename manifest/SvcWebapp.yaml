@@ -4,7 +4,6 @@ metadata:
   name: my-service-fastapiapp
   namespace: webapp
   annotations:
-     metallb.io/address-pool: ippool-addresses
      metallb.io/allow-shared-ip: "my-shared-ip-key"
      metallb.io/loadBalancerIPs: "192.168.254.214"
      
